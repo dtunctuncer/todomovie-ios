@@ -10,8 +10,8 @@ import Foundation
 
 // MARK: - PagingResponse
 struct PagingResponse<T: Codable>: Codable {
-    let page, totalResults, totalPages: Int
-    let results: [T]
+    let page, totalResults, totalPages: Int?
+    let results: [T]?
 
     enum CodingKeys: String, CodingKey {
         case page

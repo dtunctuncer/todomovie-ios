@@ -27,6 +27,12 @@ class Api {
         session.request(httpmethod: .get, components: components, completion: completion)
     }
     
+    func getMovieDetail(movieId: Int, completion: @escaping (Result<Movie>) -> Void)  {
+        var components = getUrlCompenents()
+        components.path = "/3/movie/\(movieId)"
+        session.request(httpmethod: .get, components: components, completion: completion)
+    }
+    
     private func getUrlCompenents() -> URLComponents {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"

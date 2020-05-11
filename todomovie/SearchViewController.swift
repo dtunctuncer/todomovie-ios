@@ -19,15 +19,33 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 1
         searchController.searchResultsUpdater = self
-        // 2
         searchController.obscuresBackgroundDuringPresentation = false
-        // 3
         searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        searchController.searchBar.delegate = self
         
-        searchItem(query: "Tom Hanks")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      
+      if let indexPath = tableView.indexPathForSelectedRow {
+        tableView.deselectRow(at: indexPath, animated: true)
+      }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      guard
+        segue.identifier == "ShowMovieSegue",
+        let indexPath = tableView.indexPathForSelectedRow,
+        let detailViewController = segue.destination as? MovieViewController else { return }
+        if let searchs = searchs {
+            let search: Search = searchs[indexPath.row]
+                detailViewController.search = search
+        }
+      
     }
     
     
@@ -38,7 +56,7 @@ class SearchViewController: UIViewController {
                 self.searchs = response.results
                 self.tableView.reloadData()
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
             }
         }
     }
@@ -67,6 +85,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchItem(query: searchBar.text ?? "")
+    }
+}
+
+
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
         searchItem(query: searchBar.text ?? "")
     }
 }

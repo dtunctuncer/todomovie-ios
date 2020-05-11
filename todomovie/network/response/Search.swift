@@ -18,7 +18,7 @@ struct Search: Codable {
     let profilePath: String?
     let gender: Int?
     let mediaType: String
-    let adult: Bool
+    let adult: Bool?
     let voteCount: Int?
     let video: Bool?
     let voteAverage: Double?

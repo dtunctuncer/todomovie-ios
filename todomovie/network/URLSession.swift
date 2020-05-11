@@ -35,6 +35,7 @@ public extension URLSession {
             if let data = data {
                 do {
                     let response = try JSONDecoder().decode(T.self, from: data)
+                    print(response)
                     DispatchQueue.main.async {
                         completion(.success(response))
                     }
