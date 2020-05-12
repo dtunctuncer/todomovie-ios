@@ -14,7 +14,7 @@ class SearchViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     let searchController = UISearchController(searchResultsController: nil)
-    private let api = Api()
+    public var api: Api!
     var searchs: [Search]?
     
     override func viewDidLoad() {
@@ -25,7 +25,6 @@ class SearchViewController: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         searchController.searchBar.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

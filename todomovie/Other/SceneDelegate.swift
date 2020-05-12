@@ -7,16 +7,34 @@
 //
 
 import UIKit
+import Swinject
+import SwinjectStoryboard
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    var container: Container = {
+        let container = Container()
+        container.register(Api.self) { _ in ApiImpl() }
+        container.storyboardInitCompleted(UINavigationController.self) { r, c in
+            
+        }
+        container.storyboardInitCompleted(SearchViewController.self) { r, c in
+            c.api = r.resolve(Api.self)
+        }
+        return container
+    }()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        self.window = self.window ?? UIWindow(frame: UIScreen.main.bounds)
+        self.window!.makeKeyAndVisible()
+        let storyboard = SwinjectStoryboard.create(name: "Main", bundle: nil, container: container)
+        self.window!.rootViewController = storyboard.instantiateInitialViewController()
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

@@ -8,7 +8,13 @@
 
 import Foundation
 
-class Api {
+
+protocol Api {
+    func search(query: String, completion: @escaping (Result<PagingResponse<Search>>) -> Void)
+    func getMovieDetail(movieId: Int, completion: @escaping (Result<Movie>) -> Void)
+}
+
+class ApiImpl: Api {
     
     private var session: URLSession
     init() {

@@ -24,6 +24,7 @@
 		1AD0F369246613D400C47F0B /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD0F368246613D400C47F0B /* Search.swift */; };
 		1AD0F36B246613F300C47F0B /* KnownFor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD0F36A246613F300C47F0B /* KnownFor.swift */; };
 		1AE3E4502468A38D009090F4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE3E44F2468A38D009090F4 /* Movie.swift */; };
+		F6A7E5C4880EC6261FDF738D /* Pods_todomovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9640AF6F847FF9A6B1F9079 /* Pods_todomovie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +59,9 @@
 		1AD0F368246613D400C47F0B /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		1AD0F36A246613F300C47F0B /* KnownFor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownFor.swift; sourceTree = "<group>"; };
 		1AE3E44F2468A38D009090F4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		7AC0F96C912F1E8AD1CF116B /* Pods-todomovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todomovie.debug.xcconfig"; path = "Target Support Files/Pods-todomovie/Pods-todomovie.debug.xcconfig"; sourceTree = "<group>"; };
+		880ABB9FB1CDF268E40757CC /* Pods-todomovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todomovie.release.xcconfig"; path = "Target Support Files/Pods-todomovie/Pods-todomovie.release.xcconfig"; sourceTree = "<group>"; };
+		D9640AF6F847FF9A6B1F9079 /* Pods_todomovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_todomovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,17 +70,64 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A3A2B0E24685FF80010A43C /* Kingfisher in Frameworks */,
+				F6A7E5C4880EC6261FDF738D /* Pods_todomovie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A6A94A02469EEAB004B3B37 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				1AC3EEE724636699008AA518 /* Network */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		1A6A94A12469EEE4004B3B37 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1A6A94A32469EF0B004B3B37 /* Movie */,
+				1A6A94A22469EEF7004B3B37 /* Search */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1A6A94A22469EEF7004B3B37 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				1A3A2AFE2468503F0010A43C /* MovieCell.swift */,
+				1AAC248D2420252E00BEC019 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		1A6A94A32469EF0B004B3B37 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				1A3A2B0F2468835C0010A43C /* MovieViewController.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		1A6A94A42469EF23004B3B37 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				1AAC24892420252E00BEC019 /* AppDelegate.swift */,
+				1AAC248B2420252E00BEC019 /* SceneDelegate.swift */,
+				1AAC24922420252F00BEC019 /* Assets.xcassets */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		1AAC247D2420252E00BEC019 = {
 			isa = PBXGroup;
 			children = (
 				1AAC24882420252E00BEC019 /* todomovie */,
 				1AAC24872420252E00BEC019 /* Products */,
+				3D6E08F1173FB3C48EE9321D /* Pods */,
+				985E458BE06A5087DF8EA737 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,33 +142,29 @@
 		1AAC24882420252E00BEC019 /* todomovie */ = {
 			isa = PBXGroup;
 			children = (
-				1AC3EEE724636699008AA518 /* network */,
-				1AAC24892420252E00BEC019 /* AppDelegate.swift */,
-				1AAC248B2420252E00BEC019 /* SceneDelegate.swift */,
-				1AAC248D2420252E00BEC019 /* SearchViewController.swift */,
-				1A3A2B0F2468835C0010A43C /* MovieViewController.swift */,
-				1A3A2AFE2468503F0010A43C /* MovieCell.swift */,
-				1AAC248F2420252E00BEC019 /* Main.storyboard */,
-				1AAC24922420252F00BEC019 /* Assets.xcassets */,
-				1AAC24942420252F00BEC019 /* LaunchScreen.storyboard */,
 				1AAC24972420252F00BEC019 /* Info.plist */,
+				1A6A94A02469EEAB004B3B37 /* Dependencies */,
+				1A6A94A42469EF23004B3B37 /* Other */,
+				1A6A94A12469EEE4004B3B37 /* UI */,
+				1AAC248F2420252E00BEC019 /* Main.storyboard */,
+				1AAC24942420252F00BEC019 /* LaunchScreen.storyboard */,
 			);
 			path = todomovie;
 			sourceTree = "<group>";
 		};
-		1AC3EEE724636699008AA518 /* network */ = {
+		1AC3EEE724636699008AA518 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				1AD0F3652466129D00C47F0B /* response */,
+				1AD0F3652466129D00C47F0B /* Response */,
 				1A2DFEBF246323BA00A682F6 /* Api.swift */,
 				1AD0F35F2466083200C47F0B /* HTTPMethod.swift */,
 				1AD0F3612466095000C47F0B /* Result.swift */,
 				1AD0F36324660AAB00C47F0B /* URLSession.swift */,
 			);
-			path = network;
+			path = Network;
 			sourceTree = "<group>";
 		};
-		1AD0F3652466129D00C47F0B /* response */ = {
+		1AD0F3652466129D00C47F0B /* Response */ = {
 			isa = PBXGroup;
 			children = (
 				1AD0F366246612B000C47F0B /* PagingResponse.swift */,
@@ -125,7 +172,24 @@
 				1AD0F36A246613F300C47F0B /* KnownFor.swift */,
 				1AE3E44F2468A38D009090F4 /* Movie.swift */,
 			);
-			path = response;
+			path = Response;
+			sourceTree = "<group>";
+		};
+		3D6E08F1173FB3C48EE9321D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7AC0F96C912F1E8AD1CF116B /* Pods-todomovie.debug.xcconfig */,
+				880ABB9FB1CDF268E40757CC /* Pods-todomovie.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		985E458BE06A5087DF8EA737 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9640AF6F847FF9A6B1F9079 /* Pods_todomovie.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,10 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1AAC249A2420252F00BEC019 /* Build configuration list for PBXNativeTarget "todomovie" */;
 			buildPhases = (
+				EFD5A8AA99D9E7A9971D3CD7 /* [CP] Check Pods Manifest.lock */,
 				1AAC24822420252E00BEC019 /* Sources */,
 				1AAC24832420252E00BEC019 /* Frameworks */,
 				1AAC24842420252E00BEC019 /* Resources */,
 				1A3A2B0B24685CFD0010A43C /* Embed Frameworks */,
+				AEAD88AE2649540B31E9BD6C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -200,6 +266,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AEAD88AE2649540B31E9BD6C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-todomovie/Pods-todomovie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-todomovie/Pods-todomovie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-todomovie/Pods-todomovie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFD5A8AA99D9E7A9971D3CD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-todomovie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1AAC24822420252E00BEC019 /* Sources */ = {
@@ -360,6 +468,7 @@
 		};
 		1AAC249B2420252F00BEC019 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AC0F96C912F1E8AD1CF116B /* Pods-todomovie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -378,6 +487,7 @@
 		};
 		1AAC249C2420252F00BEC019 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 880ABB9FB1CDF268E40757CC /* Pods-todomovie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
