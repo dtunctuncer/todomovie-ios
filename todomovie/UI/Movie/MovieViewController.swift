@@ -16,11 +16,11 @@ class MovieViewController: UIViewController {
     var search: Search? {
         didSet {
             configureView()
-//            getMovieDetail()
+            getMovieDetail()
         }
     }
     
-//    private let api = Api()
+    public var api: Api!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +33,16 @@ class MovieViewController: UIViewController {
     }
     
     
-//    func getMovieDetail() {
-//        api.getMovieDetail(movieId: search?.id ?? -1) { result in
-//            switch result {
-//            case .success(let movie):
-//                let url = URL(string: "https://image.tmdb.org/t/p/w300\(movie.posterPath  ?? "")")
-//                self.image.kf.setImage(with:  url)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
+    func getMovieDetail() {
+        api.getMovieDetail(movieId: search?.id ?? -1) { result in
+            switch result {
+            case .success(let movie):
+                let url = URL(string: "https://image.tmdb.org/t/p/w300\(movie.posterPath  ?? "")")
+                self.image.kf.setImage(with:  url)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
 }

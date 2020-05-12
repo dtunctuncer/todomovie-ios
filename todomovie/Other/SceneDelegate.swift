@@ -23,6 +23,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         container.storyboardInitCompleted(SearchViewController.self) { r, c in
             c.api = r.resolve(Api.self)
         }
+        container.storyboardInitCompleted(MovieViewController.self) { r, c in
+            c.api = r.resolve(Api.self)
+        }
         return container
     }()
 
